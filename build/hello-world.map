@@ -1,0 +1,35 @@
+SUMMARY:
+	ROM0: 3051 bytes used / 13333 free
+	WRAM0: 3 bytes used / 4093 free
+
+ROM0 bank #0:
+	EMPTY: $0000-$00ff ($0100 bytes)
+	SECTION: $0100-$01cc ($00cd bytes) ["Header"]
+	         $0150 = Entrypoint
+	         $0155 = WaitVBlank
+	         $0190 = MainLoop
+	         $01b4 = ScrollYNow
+	         $01c7 = ScrollRight
+	         $01cd = GetDPRight
+	SECTION: $01cd-$064a ($047e bytes) ["Tiledata"]
+	         $01cd = Tiles2
+	         $062d = CopyTiles
+	         $062d = Tiles2End
+	         $0637 = CopyTiles2
+	         $0641 = CopyTilemap
+	SECTION: $064b-$0aaa ($0460 bytes) ["Tile data"]
+	         $064b = Tiles
+	         $0aab = TilesEnd
+	SECTION: $0aab-$0cea ($0240 bytes) ["Tilemap"]
+	         $0aab = Tilemap
+	         $0ceb = TilemapEnd
+	EMPTY: $0ceb-$3fff ($3315 bytes)
+	TOTAL EMPTY: $3415 bytes
+
+WRAM0 bank #0:
+	SECTION: $c000-$c002 ($0003 bytes) ["Variables"]
+	         $c000 = ScrollY
+	         $c001 = wFramesCounter
+	         $c002 = currentInput
+	EMPTY: $c003-$cfff ($0ffd bytes)
+	TOTAL EMPTY: $0ffd bytes

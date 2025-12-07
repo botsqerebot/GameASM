@@ -16,6 +16,8 @@ BUILD_DIR = build
 ASM_FILE = $(SRC_DIR)/main.asm
 OBJ_FILE = $(BUILD_DIR)/$(GAME_NAME).o
 ROM_FILE = $(GAME_NAME).gb
+SYM_FILE = $(GAME_NAME).sym
+MAP_FILE = $(BUILD_DIR)/$(GAME_NAME).map
 
 # Build the ROM
 all: $(ROM_FILE)
@@ -30,12 +32,12 @@ $(OBJ_FILE): $(ASM_FILE) | $(BUILD_DIR)
 
 # Link the object file into a ROM
 $(ROM_FILE): $(OBJ_FILE)
-	$(RGBLINK) -o $(ROM_FILE) $(OBJ_FILE)
+	$(RGBLINK) -n $(SYM_FILE) -m $(MAP_FILE) -o $(ROM_FILE) $(OBJ_FILE)
 	$(RGBFIX) -v -p 0xFF $(ROM_FILE)
 
 # Clean build files
 clean:
-	rm -rf $(BUILD_DIR) $(ROM_FILE)
+	rm -rf $(BUILD_DIR) $(ROM_FILE) $(SYM_FILE)
 
 # Rebuild everything from scratch
 rebuild: clean all
