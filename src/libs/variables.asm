@@ -5,3 +5,4 @@ ScrollX: ds 1
 wFramesCounter: ds 1
 currentInput: ds 1
 walkCooldown: ds 1
+walkingSteps: ds 1

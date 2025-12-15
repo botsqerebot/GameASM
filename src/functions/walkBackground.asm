@@ -6,7 +6,7 @@
 ;------------------------------------------------------------------------------------------
 
 ;Called each frame in the main loop and removes 1 each frame
-;to decreese the timer
+;to decreese the
 walkCooldownTick:
     ld a, [walkCooldown]
     or a                        ;"or" checks if the value is 0, same as doing cp 0
@@ -25,8 +25,10 @@ AdvWalkUp:
     jp nz, AdvWalkUp_End
 
     ;Moves the screen
+    ld a, [walkingSteps]
+    ld b, a
     ld a, [rSCY]
-    sub 8
+    sub b
     ld [rSCY], a
 
     ;Restarts the walkCooldown
@@ -36,42 +38,58 @@ AdvWalkUp_End:
     ret
 
 AdvWalkDown:
+    ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
     jp nz, AdvWalkDown_End
 
+    ;Moves the screen
+    ld a, [walkingSteps]
+    ld b, a
     ld a, [rSCY]
-    add 8
+
+    add b
     ld [rSCY], a
 
+    ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
 AdvWalkDown_End:
     ret
 
 AdvWalkLeft:
+    ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
     jp nz, AdvWalkLeft_End
 
+    ;Moves the screen
+    ld a, [walkingSteps]
+    ld b, a
     ld a, [rSCX]
-    sub 8
+    sub b
     ld [rSCX], a
 
+    ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
 AdvWalkLeft_End:
     ret
 
 AdvWalkRight:
+    ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
     jp nz, AdvWalkRight_End
 
+    ;Moves the screen
+    ld a, [walkingSteps]
+    ld b, a
     ld a, [rSCX]
-    add 8
+    add b
     ld [rSCX], a
 
+    ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
 AdvWalkRight_End:

@@ -17,6 +17,10 @@ Entrypoint:
 
     ld a, [rSCX]
     ld [ScrollX], a
+
+    ;How many steps the player can walk each second
+    ld a, 16
+    ld [walkingSteps], a
     
 ;--------------------------------------------------------------
 ;The WaitVBlank function is only running on startup to load 
@@ -46,6 +50,6 @@ MainLoop:
     call InputButton        ;Takes the input
     ld [currentInput], a    ;Stores the current input
 
-   call WalkingAni          ;Handels moving the background simulating walking
+    call WalkingAni          ;Handels moving the background simulating walking
 
     jp MainLoop 
