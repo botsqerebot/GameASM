@@ -1,35 +1,54 @@
 SUMMARY:
-	ROM0: 3051 bytes used / 13333 free
-	WRAM0: 3 bytes used / 4093 free
+	ROM0: 3291 bytes used / 13093 free
+	WRAM0: 5 bytes used / 4091 free
 
 ROM0 bank #0:
 	EMPTY: $0000-$00ff ($0100 bytes)
-	SECTION: $0100-$01cc ($00cd bytes) ["Header"]
+	SECTION: $0100-$0181 ($0082 bytes) ["Header"]
 	         $0150 = Entrypoint
-	         $0155 = WaitVBlank
-	         $0190 = MainLoop
-	         $01b4 = ScrollYNow
-	         $01c7 = ScrollRight
-	         $01cd = GetDPRight
-	SECTION: $01cd-$064a ($047e bytes) ["Tiledata"]
-	         $01cd = Tiles2
-	         $062d = CopyTiles
-	         $062d = Tiles2End
-	         $0637 = CopyTiles2
-	         $0641 = CopyTilemap
-	SECTION: $064b-$0aaa ($0460 bytes) ["Tile data"]
-	         $064b = Tiles
-	         $0aab = TilesEnd
-	SECTION: $0aab-$0cea ($0240 bytes) ["Tilemap"]
-	         $0aab = Tilemap
-	         $0ceb = TilemapEnd
-	EMPTY: $0ceb-$3fff ($3315 bytes)
-	TOTAL EMPTY: $3415 bytes
+	         $0164 = MainLoop
+	SECTION: $0182-$05f5 ($0474 bytes) ["Tiledata"]
+	         $0182 = Tiles2
+	         $05e2 = CopyTiles
+	         $05e2 = Tiles2End
+	         $05ec = CopyTilemap
+	SECTION: $05f6-$0a55 ($0460 bytes) ["Tile data"]
+	         $05f6 = Tiles
+	         $0a56 = TilesEnd
+	SECTION: $0a56-$0c95 ($0240 bytes) ["Tilemap"]
+	         $0a56 = Tilemap
+	         $0c96 = TilemapEnd
+	SECTION: $0c96-$0dda ($0145 bytes) ["Input Buttons"]
+	         $0c96 = InputButton
+	         $0cb0 = InputButton.onenibble
+	         $0cbe = InputButton.knownRet
+	         $0cbf = DPadPressed
+	         $0cd6 = ButtonsPressed
+	         $0cef = walkCooldownTick
+	         $0cf9 = walkCooldownTick_End
+	         $0cfa = AdvWalkUp
+	         $0d0f = AdvWalkUp_End
+	         $0d10 = AdvWalkDown
+	         $0d25 = AdvWalkDown_End
+	         $0d26 = AdvWalkLeft
+	         $0d3b = AdvWalkLeft_End
+	         $0d3c = AdvWalkRight
+	         $0d51 = AdvWalkRight_End
+	         $0d52 = WalkUp
+	         $0d5d = WalkDown
+	         $0d68 = WalkLeft
+	         $0d73 = WalkRight
+	         $0d7e = WaitVBlank
+	         $0dba = WalkingAni
+	EMPTY: $0ddb-$3fff ($3225 bytes)
+	TOTAL EMPTY: $3325 bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c002 ($0003 bytes) ["Variables"]
+	SECTION: $c000-$c004 ($0005 bytes) ["Variables"]
 	         $c000 = ScrollY
-	         $c001 = wFramesCounter
-	         $c002 = currentInput
-	EMPTY: $c003-$cfff ($0ffd bytes)
-	TOTAL EMPTY: $0ffd bytes
+	         $c001 = ScrollX
+	         $c002 = wFramesCounter
+	         $c003 = currentInput
+	         $c004 = walkCooldown
+	EMPTY: $c005-$cfff ($0ffb bytes)
+	TOTAL EMPTY: $0ffb bytes

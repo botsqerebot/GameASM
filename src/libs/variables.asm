@@ -1,5 +1,7 @@
 section "Variables", wram0
 
-ScrollY: db
-wFramesCounter: db
-currentInput: db
+ScrollY: ds 1
+ScrollX: ds 1
+wFramesCounter: ds 1
+currentInput: ds 1
+walkCooldown: ds 1

@@ -8,5 +8,6 @@
     },
     "[asm]": {
         "editor.suggest.showWords": true
-    }
+    },
+    
 }
