@@ -27,14 +27,16 @@ InputButton:
     or b                        ;Combines the inputs into one single byte to have everything 
     cpl                         ; Invert the bits so 1 is pressed
 
-    ld b, a                     ; Store the input byte in b
-    and $F0                     ; Mask away the buttons so only Dpad bits are left
-    jr nz, DPadPressed
-    ld a, b                     ; Restores the byte with all inputs
+    ;ld b, a                     ; Store the input byte in b
+    ;and $F0                     ; Mask away the buttons so only Dpad bits are left
+    ;jr nz, DPadPressed
+    ;ld a, b                     ; Restores the byte with all inputs
 
-    and $0F                     ; Mask away the dpad so only button bits are left
-    jr nz, ButtonsPressed
-    ld a, b                     ; Restores the byte with all inputs
+    ;and $0F                     ; Mask away the dpad so only button bits are left
+    ;jr nz, ButtonsPressed
+    ;ld a, b                     ; Restores the byte with all inputs
+
+    ret
 
 
 .onenibble:

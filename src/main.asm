@@ -54,3 +54,11 @@ MainLoop:
     call WalkingAni          ;Handels moving the background simulating walking
 
     jp MainLoop 
+
+
+PrintA:
+    deb_msg A_msg
+    ret
+
+A_msg:
+    db "A=%A%", 0

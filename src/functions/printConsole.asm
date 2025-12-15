@@ -9,3 +9,14 @@ MACRO debug_message
     db      \1
 :
 ENDM
+
+MACRO deb_msg
+        ld      d,d
+        jr      :+
+        dw      $6464           ; Two ASCII characters: "dd"
+        dw      $0001           ; Identifier for this debug message type
+        dw      \1
+        dw      bank(\1)
+:
+endm
+

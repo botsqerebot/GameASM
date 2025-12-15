@@ -8,6 +8,7 @@
 ;Called each frame in the main loop and removes 1 each frame
 ;to decreese the
 
+
 AdvWalkUp2:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
@@ -43,7 +44,9 @@ AdvWalkUp:
     ld a, [walkCooldown]
     cp 0
     jp nz, AdvWalkUp_End
-
+    
+    ld a, [currentInput]
+    call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a
@@ -63,6 +66,8 @@ AdvWalkDown:
     cp 0
     jp nz, AdvWalkDown_End
 
+    ld a, [currentInput]
+    call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a
@@ -83,6 +88,8 @@ AdvWalkLeft:
     cp 0
     jp nz, AdvWalkLeft_End
 
+    ld a, [currentInput]
+    call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a
@@ -102,6 +109,8 @@ AdvWalkRight:
     cp 0
     jp nz, AdvWalkRight_End
 
+    ld a, [currentInput]
+    call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a

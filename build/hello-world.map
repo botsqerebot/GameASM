@@ -1,49 +1,51 @@
 SUMMARY:
-	ROM0: 3343 bytes used / 13041 free
+	ROM0: 3365 bytes used / 13019 free
 	WRAM0: 7 bytes used / 4089 free
 
 ROM0 bank #0:
 	EMPTY: $0000-$00ff ($0100 bytes)
-	SECTION: $0100-$0190 ($0091 bytes) ["Header"]
+	SECTION: $0100-$0198 ($0099 bytes) ["Header"]
 	         $0150 = Entrypoint
 	         $0169 = MainLoop
-	SECTION: $0191-$0604 ($0474 bytes) ["Tiledata"]
-	         $0191 = Tiles2
-	         $05f1 = CopyTiles
-	         $05f1 = Tiles2End
-	         $05fb = CopyTilemap
-	SECTION: $0605-$0a64 ($0460 bytes) ["Tile data"]
-	         $0605 = Tiles
-	         $0a65 = TilesEnd
-	SECTION: $0a65-$0ca4 ($0240 bytes) ["Tilemap"]
-	         $0a65 = Tilemap
-	         $0ca5 = TilemapEnd
-	SECTION: $0ca5-$0e0e ($016a bytes) ["Input Buttons"]
-	         $0ca5 = InputButton
-	         $0cbf = InputButton.onenibble
-	         $0ccd = InputButton.knownRet
-	         $0cce = DPadPressed
-	         $0ce5 = ButtonsPressed
-	         $0cfe = AdvWalkUp2
-	         $0d16 = AdvWalkUp2_End
-	         $0d17 = walkCooldownTick
-	         $0d21 = walkCooldownTick_End
-	         $0d22 = AdvWalkUp
-	         $0d3a = AdvWalkUp_End
-	         $0d3b = AdvWalkDown
-	         $0d53 = AdvWalkDown_End
-	         $0d54 = AdvWalkLeft
-	         $0d6c = AdvWalkLeft_End
-	         $0d6d = AdvWalkRight
-	         $0d85 = AdvWalkRight_End
-	         $0d86 = WalkUp
-	         $0d91 = WalkDown
-	         $0d9c = WalkLeft
-	         $0da7 = WalkRight
-	         $0db2 = WaitVBlank
-	         $0dee = WalkingAni
-	EMPTY: $0e0f-$3fff ($31f1 bytes)
-	TOTAL EMPTY: $32f1 bytes
+	         $0187 = PrintA
+	         $0193 = A_msg
+	SECTION: $0199-$060c ($0474 bytes) ["Tiledata"]
+	         $0199 = Tiles2
+	         $05f9 = CopyTiles
+	         $05f9 = Tiles2End
+	         $0603 = CopyTilemap
+	SECTION: $060d-$0a6c ($0460 bytes) ["Tile data"]
+	         $060d = Tiles
+	         $0a6d = TilesEnd
+	SECTION: $0a6d-$0cac ($0240 bytes) ["Tilemap"]
+	         $0a6d = Tilemap
+	         $0cad = TilemapEnd
+	SECTION: $0cad-$0e24 ($0178 bytes) ["Input Buttons"]
+	         $0cad = InputButton
+	         $0cbd = InputButton.onenibble
+	         $0ccb = InputButton.knownRet
+	         $0ccc = DPadPressed
+	         $0ce3 = ButtonsPressed
+	         $0cfc = AdvWalkUp2
+	         $0d14 = AdvWalkUp2_End
+	         $0d15 = walkCooldownTick
+	         $0d1f = walkCooldownTick_End
+	         $0d20 = AdvWalkUp
+	         $0d3e = AdvWalkUp_End
+	         $0d3f = AdvWalkDown
+	         $0d5d = AdvWalkDown_End
+	         $0d5e = AdvWalkLeft
+	         $0d7c = AdvWalkLeft_End
+	         $0d7d = AdvWalkRight
+	         $0d9b = AdvWalkRight_End
+	         $0d9c = WalkUp
+	         $0da7 = WalkDown
+	         $0db2 = WalkLeft
+	         $0dbd = WalkRight
+	         $0dc8 = WaitVBlank
+	         $0e04 = WalkingAni
+	EMPTY: $0e25-$3fff ($31db bytes)
+	TOTAL EMPTY: $32db bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c006 ($0007 bytes) ["Variables"]
