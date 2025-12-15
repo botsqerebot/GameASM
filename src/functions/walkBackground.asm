@@ -7,6 +7,26 @@
 
 ;Called each frame in the main loop and removes 1 each frame
 ;to decreese the
+
+AdvWalkUp2:
+    ;Check if the walk cooldown is over
+    ld a, [walkCooldown]
+    cp 0
+    jp nz, AdvWalkUp2_End
+
+    ;Moves the screen
+    ld a, [walkingSteps]
+    ld b, a
+    ld a, [rSCY]
+    sub b
+    ld [rSCY], a
+
+    ;Restarts the walkCooldown
+    ld a, 60
+    ld [walkCooldown], a
+AdvWalkUp2_End:
+    ret
+
 walkCooldownTick:
     ld a, [walkCooldown]
     or a                        ;"or" checks if the value is 0, same as doing cp 0

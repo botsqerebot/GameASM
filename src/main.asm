@@ -21,6 +21,7 @@ Entrypoint:
     ;How many steps the player can walk each second
     ld a, 16
     ld [walkingSteps], a
+
     
 ;--------------------------------------------------------------
 ;The WaitVBlank function is only running on startup to load 
@@ -32,6 +33,7 @@ Entrypoint:
 ;--------------------------------------------------------------
 call WaitVBlank
 
+
 ;My main loop of the game. Basically a main(){} in c
 MainLoop:
     ;Wait for vblank
@@ -40,7 +42,6 @@ MainLoop:
     jp c, MainLoop
 
     call walkCooldownTick ;Function that disables movment if not ready
-
 
     ;Increse the frame counter every frame
     ld a, [wFramesCounter]

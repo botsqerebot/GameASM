@@ -1,8 +1,14 @@
 section "Variables", wram0
 
-ScrollY: ds 1
-ScrollX: ds 1
+;Screen variables
+ScrollY: ds 1           ;Not used
+ScrollX: ds 1           ;Not used
 wFramesCounter: ds 1
+
+
 currentInput: ds 1
+
+;Walking variables
 walkCooldown: ds 1
 walkingSteps: ds 1
+walkPhase: ds 1
