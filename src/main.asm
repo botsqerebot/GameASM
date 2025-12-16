@@ -22,6 +22,10 @@ Entrypoint:
     ld a, 16
     ld [walkingSteps], a
 
+    ld a, 0
+    ld [currentSteps], a
+    ld [walkCooldown], a
+
     
 ;--------------------------------------------------------------
 ;The WaitVBlank function is only running on startup to load 

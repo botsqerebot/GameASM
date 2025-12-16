@@ -8,26 +8,17 @@
 ;Called each frame in the main loop and removes 1 each frame
 ;to decreese the
 
+;Resets the current steps taken variable and the current way walking
+ResetWalk:
+    ld a, 0
+    ld [currentWayWalking], a
 
-AdvWalkUp2:
-    ;Check if the walk cooldown is over
-    ld a, [walkCooldown]
-    cp 0
-    jp nz, AdvWalkUp2_End
+    ld a, 0
+    ld [currentSteps], a
 
-    ;Moves the screen
-    ld a, [walkingSteps]
-    ld b, a
-    ld a, [rSCY]
-    sub b
-    ld [rSCY], a
-
-    ;Restarts the walkCooldown
-    ld a, 60
-    ld [walkCooldown], a
-AdvWalkUp2_End:
     ret
 
+;A walking tick that disables movement
 walkCooldownTick:
     ld a, [walkCooldown]
     or a                        ;"or" checks if the value is 0, same as doing cp 0
@@ -37,6 +28,83 @@ walkCooldownTick:
 
 walkCooldownTick_End:
     ret
+
+
+AWalk:
+    ;Check if the walk cooldown is over
+    ld a, [walkCooldown]
+    cp 0
+    jp nz, AWalk_End
+
+    ;ld a, 0
+    ;ld [currentWayWalking], a
+
+    ld a, 15
+    ld [walkCooldown], a
+
+    ;Loading screen position, This is what changes the direction
+    ld a, [currentWayWalking]
+    cp 1
+    jp z, WalkUP
+    
+    cp 2
+    jp z, WalkDown
+
+    cp 3
+    jp z, WalkLeft
+
+    cp 4
+    jp z, WalkRight
+   
+    
+AWalk_End:
+    ret
+AfterSteps:
+    ld a, [currentSteps]
+    inc a
+    ld [currentSteps], a
+
+    ld a, [currentSteps]
+    ld b, a
+    ld a, [walkingSteps]
+    cp b
+    jr z, ResetWalk
+    ret
+
+
+WalkUP:
+    ld a, [rSCY]
+    dec a
+    ld [rSCY], a
+    jr AfterSteps
+
+WalkDown:
+    ld a, [rSCY]
+    inc a
+    ld [rSCY], a
+    jr AfterSteps
+
+WalkLeft:
+    ld a, [rSCX]
+    dec a
+    ld [rSCX], a
+    jr AfterSteps
+
+WalkRight:
+    ld a, [rSCX]
+    inc a
+    ld [rSCX], a
+    jr AfterSteps
+
+
+
+
+
+
+
+
+
+
 
 ;Walk functions
 AdvWalkUp:
@@ -122,43 +190,5 @@ AdvWalkRight:
     ld a, 60
     ld [walkCooldown], a
 AdvWalkRight_End:
-    ret
-
-
-
-
-
-;------------------------------------------------------------
-;Old walk code, walks 1 pixel each frame
-
-;The ScrollX and ScrollY variable is removed, use rSCY and rSCX instead directealy
-;------------------------------------------------------------
-
-WalkUp:
-    ld a, [ScrollY]
-    dec a
-    ld [ScrollY], a
-    ld [rSCY], a
-    ret
-
-WalkDown:
-    ld a, [ScrollY]
-    inc a
-    ld [ScrollY], a
-    ld [rSCY], a
-    ret
-
-WalkLeft:
-    ld a, [ScrollX]
-    dec a
-    ld [ScrollX], a
-    ld [rSCX], a
-    ret
-
-WalkRight:
-    ld a, [ScrollX]
-    inc a
-    ld [ScrollX], a
-    ld [rSCX], a
     ret
 
