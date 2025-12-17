@@ -1,22 +1,6 @@
 ;------------------------------------------------------------------------------------------
-;Goes 8 pixels up each second, disables movement for 1 second before its accessable.
-;These are just copies of each other.
-
-;To copy remember to call walkCooldownTick each frame in the main MainLoop
+;To use remember to call walkCooldownTick each frame in the main MainLoop
 ;------------------------------------------------------------------------------------------
-
-;Called each frame in the main loop and removes 1 each frame
-;to decreese the
-
-;Resets the current steps taken variable and the current way walking
-ResetWalk:
-    ld a, 0
-    ld [currentWayWalking], a
-
-    ld a, 0
-    ld [currentSteps], a
-
-    ret
 
 ;A walking tick that disables movement
 walkCooldownTick:
@@ -30,11 +14,11 @@ walkCooldownTick_End:
     ret
 
 
-AWalk:
+Walk:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
-    jp nz, AWalk_End
+    jp nz, Walk_End
 
     ;ld a, 0
     ;ld [currentWayWalking], a
@@ -56,21 +40,6 @@ AWalk:
     cp 4
     jp z, WalkRight
    
-    
-AWalk_End:
-    ret
-AfterSteps:
-    ld a, [currentSteps]
-    inc a
-    ld [currentSteps], a
-
-    ld a, [currentSteps]
-    ld b, a
-    ld a, [walkingSteps]
-    cp b
-    jr z, ResetWalk
-    ret
-
 
 WalkUP:
     ld a, [rSCY]
@@ -96,22 +65,44 @@ WalkRight:
     ld [rSCX], a
     jr AfterSteps
 
+Walk_End:
+    ret
+AfterSteps:
+    ld a, [currentSteps]
+    inc a
+    ld [currentSteps], a
+
+    ld a, [currentSteps]
+    ld b, a
+    ld a, [walkingSteps]
+    cp b
+    jr z, ResetWalk
+    ret
+
+;Resets the current steps taken variable and the current way walking
+ResetWalk:
+    ld a, 0
+    ld [currentWayWalking], a
+
+    ld a, 0
+    ld [currentSteps], a
+
+    ret
 
 
 
+;---------------------------------------------------------
+;Old walking code.
+;This takes steps in full, aka if i set it to go 
+;16 pixels it will do that instantly and add a 1 second 
+;timer as a cooldown
+;---------------------------------------------------------
 
-
-
-
-
-
-
-;Walk functions
-AdvWalkUp:
+Stutter_WalkUp:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
-    jp nz, AdvWalkUp_End
+    jp nz, Stutter_WalkUp_End
     
     ld a, [currentInput]
     call PrintA
@@ -125,14 +116,14 @@ AdvWalkUp:
     ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
-AdvWalkUp_End:
+Stutter_WalkUp_End:
     ret
 
-AdvWalkDown:
+Stutter_WalkDown:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
-    jp nz, AdvWalkDown_End
+    jp nz, Stutter_WalkDown_End
 
     ld a, [currentInput]
     call PrintA
@@ -147,14 +138,14 @@ AdvWalkDown:
     ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
-AdvWalkDown_End:
+Stutter_WalkDown_End:
     ret
 
-AdvWalkLeft:
+Stutter_WalkLeft:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
-    jp nz, AdvWalkLeft_End
+    jp nz, Stutter_WalkLeft_End
 
     ld a, [currentInput]
     call PrintA
@@ -168,14 +159,14 @@ AdvWalkLeft:
     ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
-AdvWalkLeft_End:
+Stutter_WalkLeft_End:
     ret
 
-AdvWalkRight:
+Stutter_WalkRight:
     ;Check if the walk cooldown is over
     ld a, [walkCooldown]
     cp 0
-    jp nz, AdvWalkRight_End
+    jp nz, Stutter_WalkRight_End
 
     ld a, [currentInput]
     call PrintA
@@ -189,6 +180,6 @@ AdvWalkRight:
     ;Restarts the walkCooldown
     ld a, 60
     ld [walkCooldown], a
-AdvWalkRight_End:
+Stutter_WalkRight_End:
     ret
 

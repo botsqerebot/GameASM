@@ -1,7 +1,7 @@
 WalkingAni:
     ld a, [currentWayWalking]
     cp 0
-    jp nz, AWalk
+    jp nz, Walk
 
     ld a, [currentInput]
 
@@ -22,23 +22,23 @@ WalkingAni:
 SetDirUp_AndWalk:
     ld a, 1
     ld [currentWayWalking], a
-    call AWalk
+    call Walk
     ret
 
 SetDirDown_AndWalk:
     ld a, 2
     ld [currentWayWalking], a
-    call AWalk
+    call Walk
     ret
 
 SetDirLeft_AndWalk:
     ld a, 3
     ld [currentWayWalking], a
-    call AWalk
+    call Walk
     ret
 
 SetDirRight_AndWalk:
     ld a, 4
     ld [currentWayWalking], a
-    call AWalk
+    call Walk
     ret

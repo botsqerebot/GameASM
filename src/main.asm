@@ -11,21 +11,15 @@ Entrypoint:
     ld a, 0
     ld [rNR52], a
     
-    ;Initialize the screen coordinates
-    ld a, [rSCY]
-    ld [ScrollY], a
-
-    ld a, [rSCX]
-    ld [ScrollX], a
-
     ;How many steps the player can walk each second
     ld a, 16
     ld [walkingSteps], a
 
+    ;Initialize variables that will be 0 at boot.
     ld a, 0
-    ld [currentSteps], a
-    ld [walkCooldown], a
-    ld [currentWayWalking], a
+    ld [currentSteps], a            ;How many steps the player has taken in an interval, always set to 0 at start
+    ld [walkCooldown], a            ;A cooldown to make movement slower or to pause it. If movement not wanted at start set to high number (max 255)
+    ld [currentWayWalking], a       ;The way the player is wakling right now, not walking at boot.
 
     
 ;--------------------------------------------------------------
