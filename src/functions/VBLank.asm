@@ -10,20 +10,20 @@ WaitVBlank:
     ld [rLCDC], a
 
     ;Copy tile data
-    ld de, Tiles
+    ld de, TileLabel
     ld hl, $9000
-    ld bc, TilesEnd - Tiles
+    ld bc, 4 * 16
     call CopyTiles
 
-    ld de, Tiles2
-    ld hl, $9000 + (TilesEnd - Tiles)
-    ld bc, Tiles2End - Tiles2
-    call CopyTiles
+    ;ld de, Tiles2
+    ;ld hl, $9000 + (TilesEnd - Tiles)
+    ;ld bc, Tiles2End - Tiles2
+    ;call CopyTiles
 
     ;Copy tile map
-    ld de, Tilemap
+    ld de, FirstTileMap
     ld hl, $9800
-    ld bc, TilemapEnd - Tilemap
+    ld bc, FirstTileMapWidth * FirstTileMapHeight
     call CopyTilemap
 
     ;Turn on lcd

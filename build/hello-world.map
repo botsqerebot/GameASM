@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 3432 bytes used / 12952 free
+	ROM0: 4508 bytes used / 11876 free
 	WRAM0: 8 bytes used / 4088 free
 
 ROM0 bank #0:
@@ -9,49 +9,52 @@ ROM0 bank #0:
 	         $0168 = MainLoop
 	         $0186 = PrintA
 	         $0192 = A_msg
-	SECTION: $0198-$060b ($0474 bytes) ["Tiledata"]
-	         $0198 = Tiles2
-	         $05f8 = CopyTiles
-	         $05f8 = Tiles2End
-	         $0602 = CopyTilemap
-	SECTION: $060c-$0a6b ($0460 bytes) ["Tile data"]
-	         $060c = Tiles
-	         $0a6c = TilesEnd
-	SECTION: $0a6c-$0cab ($0240 bytes) ["Tilemap"]
-	         $0a6c = Tilemap
-	         $0cac = TilemapEnd
-	SECTION: $0cac-$0e67 ($01bc bytes) ["Input Buttons"]
-	         $0cac = InputButton
-	         $0cbc = InputButton.onenibble
-	         $0cca = InputButton.knownRet
-	         $0ccb = DPadPressed
-	         $0ce2 = ButtonsPressed
-	         $0cfb = walkCooldownTick
-	         $0d05 = walkCooldownTick_End
-	         $0d06 = Walk
-	         $0d2a = WalkUP
-	         $0d33 = WalkDown
-	         $0d3c = WalkLeft
-	         $0d45 = WalkRight
-	         $0d4e = Walk_End
-	         $0d4f = AfterSteps
-	         $0d61 = ResetWalk
-	         $0d6c = Stutter_WalkUp
-	         $0d8a = Stutter_WalkUp_End
-	         $0d8b = Stutter_WalkDown
-	         $0da9 = Stutter_WalkDown_End
-	         $0daa = Stutter_WalkLeft
-	         $0dc8 = Stutter_WalkLeft_End
-	         $0dc9 = Stutter_WalkRight
-	         $0de7 = Stutter_WalkRight_End
-	         $0de8 = WaitVBlank
-	         $0e24 = WalkingAni
-	         $0e44 = SetDirUp_AndWalk
-	         $0e4d = SetDirDown_AndWalk
-	         $0e56 = SetDirLeft_AndWalk
-	         $0e5f = SetDirRight_AndWalk
-	EMPTY: $0e68-$3fff ($3198 bytes)
-	TOTAL EMPTY: $3298 bytes
+	SECTION: $0198-$0787 ($05f0 bytes) ["Input Buttons"]
+	         $0198 = InputButton
+	         $01a8 = InputButton.onenibble
+	         $01b6 = InputButton.knownRet
+	         $01b7 = DPadPressed
+	         $01ce = ButtonsPressed
+	         $01e7 = walkCooldownTick
+	         $01f1 = walkCooldownTick_End
+	         $01f2 = Walk
+	         $0216 = WalkUP
+	         $021f = WalkDown
+	         $0228 = WalkLeft
+	         $0231 = WalkRight
+	         $023a = Walk_End
+	         $023b = AfterSteps
+	         $024d = ResetWalk
+	         $0258 = Stutter_WalkUp
+	         $0276 = Stutter_WalkUp_End
+	         $0277 = Stutter_WalkDown
+	         $0295 = Stutter_WalkDown_End
+	         $0296 = Stutter_WalkLeft
+	         $02b4 = Stutter_WalkLeft_End
+	         $02b5 = Stutter_WalkRight
+	         $02d3 = Stutter_WalkRight_End
+	         $02d4 = WaitVBlank
+	         $0304 = WalkingAni
+	         $0324 = SetDirUp_AndWalk
+	         $032d = SetDirDown_AndWalk
+	         $0336 = SetDirLeft_AndWalk
+	         $033f = SetDirRight_AndWalk
+	         $0348 = TileLabel
+	         $0388 = FirstTileMap
+	SECTION: $0788-$0bfb ($0474 bytes) ["Tiledata"]
+	         $0788 = Tiles2
+	         $0be8 = CopyTiles
+	         $0be8 = Tiles2End
+	         $0bf2 = CopyTilemap
+	         $0bfc = CopyTile
+	SECTION: $0bfc-$105b ($0460 bytes) ["Tile data"]
+	         $0bfc = Tiles
+	         $105c = TilesEnd
+	SECTION: $105c-$129b ($0240 bytes) ["Tilemap"]
+	         $105c = Tilemap
+	         $129c = TilemapEnd
+	EMPTY: $129c-$3fff ($2d64 bytes)
+	TOTAL EMPTY: $2e64 bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c007 ($0008 bytes) ["Variables"]

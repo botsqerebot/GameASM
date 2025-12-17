@@ -17,3 +17,5 @@ CopyTilemap:
     or a, c
     jp nz, CopyTilemap
     ret
+CopyTile:
+    
