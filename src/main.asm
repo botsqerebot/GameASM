@@ -25,6 +25,7 @@ Entrypoint:
     ld a, 0
     ld [currentSteps], a
     ld [walkCooldown], a
+    ld [currentWayWalking], a
 
     
 ;--------------------------------------------------------------

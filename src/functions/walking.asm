@@ -1,15 +1,8 @@
 WalkingAni:
-    ld a, [currentInput]
-
-    and %11110000
-    jp z, WalkingAni_NoInput
-
-    ;Check if already walking
     ld a, [currentWayWalking]
     cp 0
-    jp nz, WalkingAni_AlreadyWalking
+    jp nz, AWalk
 
-    ;Not walking yet, set direction first
     ld a, [currentInput]
 
     bit 6, a               ;Check if dpad is up
@@ -24,7 +17,7 @@ WalkingAni:
     bit 4, a                ;Check if dpad is right
     jp nz, SetDirRight_AndWalk
 
-    jp WalkingAni_End
+    ret
 
 SetDirUp_AndWalk:
     ld a, 1
@@ -48,16 +41,4 @@ SetDirRight_AndWalk:
     ld a, 4
     ld [currentWayWalking], a
     call AWalk
-    ret
-
-WalkingAni_AlreadyWalking:
-    call AWalk
-    ret
-
-WalkingAni_NoInput:
-    ;No button pressed, reset walking state
-    call ResetWalk
-    ret
-
-WalkingAni_End:
     ret

@@ -42,7 +42,7 @@ AWalk:
     ld a, 15
     ld [walkCooldown], a
 
-    ;Loading screen position, This is what changes the direction
+    ;Basically if statements to see what direction to walk
     ld a, [currentWayWalking]
     cp 1
     jp z, WalkUP
