@@ -1,6 +1,6 @@
 SUMMARY:
-	ROM0: 4512 bytes used / 11872 free
-	WRAM0: 8 bytes used / 4088 free
+	ROM0: 3539 bytes used / 12845 free
+	WRAM0: 11 bytes used / 4085 free
 
 ROM0 bank #0:
 	SECTION: $0000-$004e ($004f bytes) ["Input Buttons"]
@@ -9,58 +9,61 @@ ROM0 bank #0:
 	         $001e = InputButton.knownRet
 	         $001f = DPadPressed
 	         $0036 = ButtonsPressed
-	SECTION: $004f-$0055 ($0007 bytes) ["GameState"]
+	SECTION: $004f-$0093 ($0045 bytes) ["GameState"]
 	         $004f = Playing_State
-	EMPTY: $0056-$00ff ($00aa bytes)
-	SECTION: $0100-$0194 ($0095 bytes) ["Header"]
+	         $005e = GoToStart_State
+	         $0076 = StartScreen_State
+	         $007f = GoToGame_State
+	EMPTY: $0094-$00ff ($006c bytes)
+	SECTION: $0100-$01a7 ($00a8 bytes) ["Header"]
 	         $0150 = Entrypoint
-	         $0168 = MainLoop
-	         $0183 = PrintA
-	         $018f = A_msg
-	SECTION: $0195-$05f4 ($0460 bytes) ["Tiledata"]
-	         $0195 = Tiles2
-	         $05f5 = Tiles2End
-	SECTION: $05f5-$0a54 ($0460 bytes) ["Tile data"]
-	         $05f5 = Tiles
-	         $0a55 = TilesEnd
-	SECTION: $0a55-$0e54 ($0400 bytes) ["TileData"]
-	         $0a55 = FirstTileMap
-	SECTION: $0e55-$10d4 ($0280 bytes) ["Tilemap"]
-	         $0e55 = Tilemap
-	         $1095 = World
-	         $1095 = TilemapEnd
-	SECTION: $10d5-$1249 ($0175 bytes) ["GameCode"]
-	         $10d5 = walkCooldownTick
-	         $10df = walkCooldownTick_End
-	         $10e0 = Walk
-	         $1104 = WalkUP
-	         $110d = WalkDown
-	         $1116 = WalkLeft
-	         $111f = WalkRight
-	         $1128 = Walk_End
-	         $1129 = AfterSteps
-	         $113b = ResetWalk
-	         $1146 = Stutter_WalkUp
-	         $1164 = Stutter_WalkUp_End
-	         $1165 = Stutter_WalkDown
-	         $1183 = Stutter_WalkDown_End
-	         $1184 = Stutter_WalkLeft
-	         $11a2 = Stutter_WalkLeft_End
-	         $11a3 = Stutter_WalkRight
-	         $11c1 = Stutter_WalkRight_End
-	         $11c2 = CopyTiles
-	         $11cc = CopyTilemap
-	         $11d6 = WalkingAni
-	         $11f6 = SetDirUp_AndWalk
-	         $11ff = SetDirDown_AndWalk
-	         $1208 = SetDirLeft_AndWalk
-	         $1211 = SetDirRight_AndWalk
-	         $121a = WaitVBlank
-	EMPTY: $124a-$3fff ($2db6 bytes)
-	TOTAL EMPTY: $2e60 bytes
+	         $0171 = MainLoop
+	         $0196 = PrintA
+	         $01a2 = A_msg
+	SECTION: $01a8-$0607 ($0460 bytes) ["HelloWorld_Tiles"]
+	         $01a8 = HelloWorld_Tiles
+	         $0608 = HelloWorld_TilesEnd
+	SECTION: $0608-$0a07 ($0400 bytes) ["TileData"]
+	         $0608 = WorldTileMap
+	SECTION: $0a08-$0c87 ($0280 bytes) ["HelloWorld"]
+	         $0a08 = HelloWorldmap
+	         $0c48 = World
+	         $0c48 = HelloWorldmapEnd
+	SECTION: $0c88-$0e3e ($01b7 bytes) ["GameCode"]
+	         $0c88 = walkCooldownTick
+	         $0c92 = walkCooldownTick_End
+	         $0c93 = Walk
+	         $0cb7 = WalkUP
+	         $0cc0 = WalkDown
+	         $0cc9 = WalkLeft
+	         $0cd2 = WalkRight
+	         $0cdb = Walk_End
+	         $0cdc = AfterSteps
+	         $0cee = ResetWalk
+	         $0cf9 = Stutter_WalkUp
+	         $0d17 = Stutter_WalkUp_End
+	         $0d18 = Stutter_WalkDown
+	         $0d36 = Stutter_WalkDown_End
+	         $0d37 = Stutter_WalkLeft
+	         $0d55 = Stutter_WalkLeft_End
+	         $0d56 = Stutter_WalkRight
+	         $0d74 = Stutter_WalkRight_End
+	         $0d75 = CopyTiles
+	         $0d7f = CopyTilemap
+	         $0d89 = WalkingAni
+	         $0db1 = SetDirUp_AndWalk
+	         $0dba = SetDirDown_AndWalk
+	         $0dc3 = SetDirLeft_AndWalk
+	         $0dcc = SetDirRight_AndWalk
+	         $0dd5 = SaveCoordiate
+	         $0de8 = WaitVBlank
+	         $0e0d = LoadWorldMap
+	         $0e26 = LoadStartScreen
+	EMPTY: $0e3f-$3fff ($31c1 bytes)
+	TOTAL EMPTY: $322d bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c007 ($0008 bytes) ["Variables"]
+	SECTION: $c000-$c00a ($000b bytes) ["Variables"]
 	         $c000 = ScrollY
 	         $c001 = ScrollX
 	         $c002 = wFramesCounter
@@ -69,5 +72,8 @@ WRAM0 bank #0:
 	         $c005 = walkingSteps
 	         $c006 = currentSteps
 	         $c007 = currentWayWalking
-	EMPTY: $c008-$cfff ($0ff8 bytes)
-	TOTAL EMPTY: $0ff8 bytes
+	         $c008 = lastCoorY
+	         $c009 = lastCoorX
+	         $c00a = gameState
+	EMPTY: $c00b-$cfff ($0ff5 bytes)
+	TOTAL EMPTY: $0ff5 bytes

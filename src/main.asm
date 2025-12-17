@@ -17,9 +17,15 @@ Entrypoint:
 
     ;Initialize variables that will be 0 at boot.
     ld a, 0
+    
     ld [currentSteps], a            ;How many steps the player has taken in an interval, always set to 0 at start
     ld [walkCooldown], a            ;A cooldown to make movement slower or to pause it. If movement not wanted at start set to high number (max 255)
     ld [currentWayWalking], a       ;The way the player is wakling right now, not walking at boot.
+
+    ld [gameState], a               ;Sets the game state to the start screen
+
+    ld [lastCoorX], a               ;Sets the start coordinates to 0
+    ld [lastCoorY], a
 
     
 ;--------------------------------------------------------------
@@ -49,8 +55,11 @@ MainLoop:
     call InputButton        ;Takes the input
     ld [currentInput], a    ;Stores the current input
 
-
-    call Playing_State
+    ld a, [gameState]
+    cp 0
+    call z, StartScreen_State
+    cp 1
+    call z, Playing_State
     ;call walkCooldownTick ;Function that disables movment if not ready
 
     ;call WalkingAni          ;Handels moving the background simulating walking

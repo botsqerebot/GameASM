@@ -17,6 +17,10 @@ WalkingAni:
     bit 4, a                ;Check if dpad is right
     jp nz, SetDirRight_AndWalk
 
+    ld a, [currentWayWalking]
+    cp 0
+    jp z, SaveCoordiate
+
     ret
 
 SetDirUp_AndWalk:
@@ -41,4 +45,16 @@ SetDirRight_AndWalk:
     ld a, 4
     ld [currentWayWalking], a
     call Walk
+    ret
+
+
+;Save the last coordinate so that if i change scene i can 
+;go back to the same spot
+SaveCoordiate:
+    ld a, [rSCY]
+    ld [lastCoorY], a
+
+    ld a, [rSCX]
+    ld [lastCoorX], a
+    
     ret

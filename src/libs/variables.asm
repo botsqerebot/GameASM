@@ -13,7 +13,6 @@ wFramesCounter: ds 1
 ;   Bit 1   B       Mask $02
 ;   Bit 2   Select  Mask $04
 ;   Bit 3   Start   Mask $08
-
 ;   Bit 4   Right   Mask $10
 ;   Bit 5   Left    Mask $20
 ;   Bit 6   Up      Mask $40
@@ -31,6 +30,7 @@ walkCooldown: ds 1
 ;--------------------------------------------------------
 ;How many steps to take in total each time you press a
 ;directional pad
+;Do not change unless intentional but always revert back to the original
 walkingSteps: ds 1
 
 ;--------------------------------------------------------
@@ -44,3 +44,15 @@ currentSteps: ds 1
 ;3 = Left
 ;4 = Right
 currentWayWalking: ds 1
+
+;-------------------------
+;Last y coordinate
+lastCoorY: ds 1
+lastCoorX: ds 1
+
+
+
+;--------------------------
+;0 = Start Screen
+;1 = Walking Screen
+gameState: ds 1
