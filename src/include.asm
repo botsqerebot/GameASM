@@ -1,12 +1,26 @@
+;Liberaries and global variables
 INCLUDE "libs/hardware.inc"
-INCLUDE "textures/Tilemap/hello_world.asm"
-INCLUDE "textures/Tiles/hello_world.asm"
-INCLUDE "functions/CopyTiles.asm"
 INCLUDE "libs/variables.asm"
-INCLUDE "functions/printConsole.asm"
-INCLUDE "functions/input.asm"
+
+
+SECTION "GameCode", ROM0
+;Functions
 INCLUDE "functions/walkBackground.asm"
-INCLUDE "functions/VBlank.asm"
+INCLUDE "functions/printConsole.asm"
+INCLUDE "functions/CopyTiles.asm"
 INCLUDE "functions/walking.asm"
-INCLUDE "../tempTiles&Map/Tiles/Export.z80"
-INCLUDE "../tempTiles&Map/Maps/First.z80"
+INCLUDE "functions/VBlank.asm"
+INCLUDE "functions/input.asm"
+
+
+SECTION "TileData", ROM0
+
+;TileMaps
+INCLUDE "textures/Tilemap/First.z80"
+INCLUDE "textures/Tilemap/hello_world.asm"
+
+
+;Tiles
+INCLUDE "textures/Tiles/Export.z80"
+INCLUDE "textures/Tiles/hello_world.asm"
+
