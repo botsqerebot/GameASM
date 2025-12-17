@@ -3,7 +3,15 @@ INCLUDE "libs/hardware.inc"
 INCLUDE "libs/variables.asm"
 
 
+;The game states
+SECTION "GameState", ROM0
+
+INCLUDE "states/playing.asm"
+INCLUDE "states/start.asm"
+
 SECTION "GameCode", ROM0
+
+
 ;Functions
 INCLUDE "functions/walkBackground.asm"
 INCLUDE "functions/printConsole.asm"

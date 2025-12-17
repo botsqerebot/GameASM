@@ -40,17 +40,20 @@ MainLoop:
     cp 144
     jp c, MainLoop
 
-    call walkCooldownTick ;Function that disables movment if not ready
-
     ;Increse the frame counter every frame
     ld a, [wFramesCounter]
     inc a
     ld [wFramesCounter], a
 
+    ;Takes the input for this frame
     call InputButton        ;Takes the input
     ld [currentInput], a    ;Stores the current input
 
-    call WalkingAni          ;Handels moving the background simulating walking
+
+    call Playing_State
+    ;call walkCooldownTick ;Function that disables movment if not ready
+
+    ;call WalkingAni          ;Handels moving the background simulating walking
 
     jp MainLoop 
 
