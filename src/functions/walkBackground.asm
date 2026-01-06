@@ -23,7 +23,7 @@ Walk:
     ;ld a, 0
     ;ld [currentWayWalking], a
 
-    ld a, 15
+    ld a, 10
     ld [walkCooldown], a
 
     ;Basically if statements to see what direction to walk
@@ -105,7 +105,7 @@ Stutter_WalkUp:
     jp nz, Stutter_WalkUp_End
     
     ld a, [currentInput]
-    call PrintA
+    ;call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a
@@ -126,7 +126,7 @@ Stutter_WalkDown:
     jp nz, Stutter_WalkDown_End
 
     ld a, [currentInput]
-    call PrintA
+    ;call PrintA
     ;Moves the screen
     ld a, [walkingSteps]
     ld b, a

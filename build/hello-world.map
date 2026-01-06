@@ -1,6 +1,6 @@
 SUMMARY:
-	ROM0: 3539 bytes used / 12845 free
-	WRAM0: 11 bytes used / 4085 free
+	ROM0: 3727 bytes used / 12657 free
+	WRAM0: 12 bytes used / 4084 free
 
 ROM0 bank #0:
 	SECTION: $0000-$004e ($004f bytes) ["Input Buttons"]
@@ -9,61 +9,67 @@ ROM0 bank #0:
 	         $001e = InputButton.knownRet
 	         $001f = DPadPressed
 	         $0036 = ButtonsPressed
-	SECTION: $004f-$0093 ($0045 bytes) ["GameState"]
+	SECTION: $004f-$0096 ($0048 bytes) ["GameState"]
 	         $004f = Playing_State
 	         $005e = GoToStart_State
 	         $0076 = StartScreen_State
 	         $007f = GoToGame_State
-	EMPTY: $0094-$00ff ($006c bytes)
-	SECTION: $0100-$01a7 ($00a8 bytes) ["Header"]
+	EMPTY: $0097-$00ff ($0069 bytes)
+	SECTION: $0100-$01aa ($00ab bytes) ["Header"]
 	         $0150 = Entrypoint
-	         $0171 = MainLoop
-	         $0196 = PrintA
-	         $01a2 = A_msg
-	SECTION: $01a8-$0607 ($0460 bytes) ["HelloWorld_Tiles"]
-	         $01a8 = HelloWorld_Tiles
-	         $0608 = HelloWorld_TilesEnd
-	SECTION: $0608-$0a07 ($0400 bytes) ["TileData"]
-	         $0608 = WorldTileMap
-	SECTION: $0a08-$0c87 ($0280 bytes) ["HelloWorld"]
-	         $0a08 = HelloWorldmap
-	         $0c48 = World
-	         $0c48 = HelloWorldmapEnd
-	SECTION: $0c88-$0e3e ($01b7 bytes) ["GameCode"]
-	         $0c88 = walkCooldownTick
-	         $0c92 = walkCooldownTick_End
-	         $0c93 = Walk
-	         $0cb7 = WalkUP
-	         $0cc0 = WalkDown
-	         $0cc9 = WalkLeft
-	         $0cd2 = WalkRight
-	         $0cdb = Walk_End
-	         $0cdc = AfterSteps
-	         $0cee = ResetWalk
-	         $0cf9 = Stutter_WalkUp
-	         $0d17 = Stutter_WalkUp_End
-	         $0d18 = Stutter_WalkDown
-	         $0d36 = Stutter_WalkDown_End
-	         $0d37 = Stutter_WalkLeft
-	         $0d55 = Stutter_WalkLeft_End
-	         $0d56 = Stutter_WalkRight
-	         $0d74 = Stutter_WalkRight_End
-	         $0d75 = CopyTiles
-	         $0d7f = CopyTilemap
-	         $0d89 = WalkingAni
-	         $0db1 = SetDirUp_AndWalk
-	         $0dba = SetDirDown_AndWalk
-	         $0dc3 = SetDirLeft_AndWalk
-	         $0dcc = SetDirRight_AndWalk
-	         $0dd5 = SaveCoordiate
-	         $0de8 = WaitVBlank
-	         $0e0d = LoadWorldMap
-	         $0e26 = LoadStartScreen
-	EMPTY: $0e3f-$3fff ($31c1 bytes)
-	TOTAL EMPTY: $322d bytes
+	         $0174 = MainLoop
+	         $0199 = PrintA
+	         $01a5 = A_msg
+	SECTION: $01ab-$068a ($04e0 bytes) ["HelloWorld_Tiles"]
+	         $01ab = HelloWorld_Tiles
+	         $060b = HelloWorld_TilesEnd
+	         $060b = Character
+	SECTION: $068b-$0a8a ($0400 bytes) ["TileData"]
+	         $068b = WorldTileMap
+	SECTION: $0a8b-$0d0a ($0280 bytes) ["HelloWorld"]
+	         $0a8b = HelloWorldmap
+	         $0ccb = World
+	         $0ccb = HelloWorldmapEnd
+	SECTION: $0d0b-$0ef7 ($01ed bytes) ["GameCode"]
+	         $0d0b = walkCooldownTick
+	         $0d15 = walkCooldownTick_End
+	         $0d16 = Walk
+	         $0d3a = WalkUP
+	         $0d43 = WalkDown
+	         $0d4c = WalkLeft
+	         $0d55 = WalkRight
+	         $0d5e = Walk_End
+	         $0d5f = AfterSteps
+	         $0d71 = ResetWalk
+	         $0d7c = Stutter_WalkUp
+	         $0d97 = Stutter_WalkUp_End
+	         $0d98 = Stutter_WalkDown
+	         $0db3 = Stutter_WalkDown_End
+	         $0db4 = Stutter_WalkLeft
+	         $0dd2 = Stutter_WalkLeft_End
+	         $0dd3 = Stutter_WalkRight
+	         $0df1 = Stutter_WalkRight_End
+	         $0df2 = CopyTiles
+	         $0dfc = CopyTilemap
+	         $0e06 = WalkingAni
+	         $0e29 = SetDirUp_AndWalk
+	         $0e32 = SetDirDown_AndWalk
+	         $0e3b = SetDirLeft_AndWalk
+	         $0e44 = SetDirRight_AndWalk
+	         $0e4d = SaveCoordiate
+	         $0e5a = increese
+	         $0e5e = SaveCoordiate2
+	         $0e7c = WaitVBlank
+	         $0eac = LoadWorldMap
+	         $0ec5 = LoadStartScreen
+	         $0ede = loadSprite
+	         $0eeb = ClearOAM
+	         $0ef2 = ClearOAMLoop
+	EMPTY: $0ef8-$3fff ($3108 bytes)
+	TOTAL EMPTY: $3171 bytes
 
 WRAM0 bank #0:
-	SECTION: $c000-$c00a ($000b bytes) ["Variables"]
+	SECTION: $c000-$c00b ($000c bytes) ["Variables"]
 	         $c000 = ScrollY
 	         $c001 = ScrollX
 	         $c002 = wFramesCounter
@@ -75,5 +81,6 @@ WRAM0 bank #0:
 	         $c008 = lastCoorY
 	         $c009 = lastCoorX
 	         $c00a = gameState
-	EMPTY: $c00b-$cfff ($0ff5 bytes)
-	TOTAL EMPTY: $0ff5 bytes
+	         $c00b = showSprite
+	EMPTY: $c00c-$cfff ($0ff4 bytes)
+	TOTAL EMPTY: $0ff4 bytes

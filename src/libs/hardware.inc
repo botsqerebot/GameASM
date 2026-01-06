@@ -42,6 +42,19 @@ MACRO rev_Check_hardware_inc
     endc
 ENDM
 
+DEF _VRAM        EQU $8000 ; $8000->$9FFF
+DEF _VRAM8000    EQU _VRAM
+DEF _VRAM8800    EQU _VRAM+$800
+DEF _VRAM9000    EQU _VRAM+$1000
+DEF _SCRN0       EQU $9800 ; $9800->$9BFF
+DEF _SCRN1       EQU $9C00 ; $9C00->$9FFF
+DEF _SRAM        EQU $A000 ; $A000->$BFFF
+DEF _RAM         EQU $C000 ; $C000->$CFFF / $C000->$DFFF
+DEF _RAMBANK     EQU $D000 ; $D000->$DFFF
+DEF _OAMRAM      EQU $FE00 ; $FE00->$FE9F
+DEF _IO          EQU $FF00 ; $FF00->$FF7F,$FFFF
+DEF _AUD3WAVERAM EQU $FF30 ; $FF30->$FF3F
+DEF _HRAM        EQU $FF80 ; $FF80->$FFF
 
 ;******************************************************************************
 ; Memory-mapped registers ($FFxx range)
@@ -1011,7 +1024,7 @@ def AUD3RAM equ $FF1A ; $FF1A-$FF1E
 def AUD4RAM equ $FF1F ; $FF1F-$FF23
 def AUDRAM_SIZE equ 5 ; size of each audio channel RAM in bytes
 
-def _AUD3WAVERAM equ $FF30 ; $FF30-$FF3F
+;def _AUD3WAVERAM equ $FF30 ; $FF30-$FF3F
 def AUD3WAVE_SIZE equ 16 ; size of wave pattern RAM in bytes
 
 

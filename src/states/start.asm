@@ -8,6 +8,7 @@ StartScreen_State:
 GoToGame_State:
     ld a, 1
     ld [gameState], a
+    ld [showSprite], a
     call WaitVBlank
 
     ld a, [lastCoorY]

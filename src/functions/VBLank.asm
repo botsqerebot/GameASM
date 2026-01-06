@@ -15,6 +15,13 @@ WaitVBlank:
     cp 1
     call z, LoadWorldMap
 
+    call ClearOAM
+
+    ;Loads the sprite textures to memory
+    ld a, [showSprite]
+    cp 1
+    call z, loadSprite
+
     ;Turn on lcd
     ld a, LCDC_ON | LCDC_BG_ON
     ld [rLCDC], a
@@ -53,4 +60,23 @@ LoadStartScreen:
     ld bc, HelloWorldmapEnd - HelloWorldmap
     call CopyTilemap
 
+    ret
+
+loadSprite:
+    ld de, Character
+    ld hl, $8000
+    ld bc, 16 * 8
+    call CopyTiles
+    ret
+
+
+ClearOAM:
+;Clearing the oamram to make sure no sprite is shown wrong
+    ld a, 0
+    ld b, 160
+    ld hl, _OAMRAM
+ClearOAMLoop:
+    ld [hli], a
+    dec b
+    jp nz, ClearOAMLoop
     ret

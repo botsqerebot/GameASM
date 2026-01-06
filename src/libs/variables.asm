@@ -56,3 +56,6 @@ lastCoorX: ds 1
 ;0 = Start Screen
 ;1 = Walking Screen
 gameState: ds 1
+;0 = False
+;nz (Not zero) = true
+showSprite: ds 1

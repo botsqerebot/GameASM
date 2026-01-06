@@ -32,3 +32,6 @@ INCLUDE "textures/Tilemap/hello_world.asm"
 INCLUDE "textures/Tiles/Export.z80"
 INCLUDE "textures/Tiles/hello_world.asm"
 
+;Sprites
+INCLUDE "textures/Sprites/Character.z80"
+

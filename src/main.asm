@@ -27,6 +27,8 @@ Entrypoint:
     ld [lastCoorX], a               ;Sets the start coordinates to 0
     ld [lastCoorY], a
 
+    ld [showSprite], a
+
     
 ;--------------------------------------------------------------
 ;The WaitVBlank function is only running on startup to load 
