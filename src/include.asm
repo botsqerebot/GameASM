@@ -14,6 +14,7 @@ SECTION "GameCode", ROM0
 
 ;Functions
 INCLUDE "functions/walkBackground.asm"
+INCLUDE "functions/characterSetup.asm"
 INCLUDE "functions/printConsole.asm"
 INCLUDE "functions/CopyTiles.asm"
 INCLUDE "functions/walking.asm"
@@ -34,4 +35,5 @@ INCLUDE "textures/Tiles/hello_world.asm"
 
 ;Sprites
 INCLUDE "textures/Sprites/Character.z80"
+
 

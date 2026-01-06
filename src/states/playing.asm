@@ -1,6 +1,8 @@
 
 Playing_State:
     call walkCooldownTick ;Function that disables movment if not ready
+    
+    ;call SetupCharacter
 
     call WalkingAni          ;Handels moving the background simulating walking
 

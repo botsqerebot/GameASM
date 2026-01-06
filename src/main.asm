@@ -27,7 +27,7 @@ Entrypoint:
     ld [lastCoorX], a               ;Sets the start coordinates to 0
     ld [lastCoorY], a
 
-    ld [showSprite], a
+    ld [showSprite], a              ;Sets that showing sprites is off by defualt
 
     
 ;--------------------------------------------------------------

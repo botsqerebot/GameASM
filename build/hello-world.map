@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 3727 bytes used / 12657 free
+	ROM0: 3827 bytes used / 12557 free
 	WRAM0: 12 bytes used / 4084 free
 
 ROM0 bank #0:
@@ -30,7 +30,7 @@ ROM0 bank #0:
 	         $0a8b = HelloWorldmap
 	         $0ccb = World
 	         $0ccb = HelloWorldmapEnd
-	SECTION: $0d0b-$0ef7 ($01ed bytes) ["GameCode"]
+	SECTION: $0d0b-$0f5b ($0251 bytes) ["GameCode"]
 	         $0d0b = walkCooldownTick
 	         $0d15 = walkCooldownTick_End
 	         $0d16 = Walk
@@ -49,24 +49,25 @@ ROM0 bank #0:
 	         $0dd2 = Stutter_WalkLeft_End
 	         $0dd3 = Stutter_WalkRight
 	         $0df1 = Stutter_WalkRight_End
-	         $0df2 = CopyTiles
-	         $0dfc = CopyTilemap
-	         $0e06 = WalkingAni
-	         $0e29 = SetDirUp_AndWalk
-	         $0e32 = SetDirDown_AndWalk
-	         $0e3b = SetDirLeft_AndWalk
-	         $0e44 = SetDirRight_AndWalk
-	         $0e4d = SaveCoordiate
-	         $0e5a = increese
-	         $0e5e = SaveCoordiate2
-	         $0e7c = WaitVBlank
-	         $0eac = LoadWorldMap
-	         $0ec5 = LoadStartScreen
-	         $0ede = loadSprite
-	         $0eeb = ClearOAM
-	         $0ef2 = ClearOAMLoop
-	EMPTY: $0ef8-$3fff ($3108 bytes)
-	TOTAL EMPTY: $3171 bytes
+	         $0df2 = SetupCharacter
+	         $0e46 = CopyTiles
+	         $0e50 = CopyTilemap
+	         $0e5a = WalkingAni
+	         $0e7d = SetDirUp_AndWalk
+	         $0e86 = SetDirDown_AndWalk
+	         $0e8f = SetDirLeft_AndWalk
+	         $0e98 = SetDirRight_AndWalk
+	         $0ea1 = SaveCoordiate
+	         $0eae = increese
+	         $0eb2 = SaveCoordiate2
+	         $0ed0 = WaitVBlank
+	         $0f08 = ClearOAM
+	         $0f0f = ClearOAMLoop
+	         $0f1d = LoadWorldMap
+	         $0f36 = LoadStartScreen
+	         $0f4f = loadMainCharacter
+	EMPTY: $0f5c-$3fff ($30a4 bytes)
+	TOTAL EMPTY: $310d bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c00b ($000c bytes) ["Variables"]

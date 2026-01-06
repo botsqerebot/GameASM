@@ -9,6 +9,7 @@ WaitVBlank:
     ld a, 0
     ld [rLCDC], a
 
+    ;changes what to load depending on the gamestate
     ld a, [gameState]
     cp 0
     call z, LoadStartScreen
@@ -17,21 +18,44 @@ WaitVBlank:
 
     call ClearOAM
 
-    ;Loads the sprite textures to memory
+    ;Loads the sprite textures to memory if sprites are now viewable
     ld a, [showSprite]
     cp 1
-    call z, loadSprite
+    call z, loadMainCharacter
 
     ;Turn on lcd
-    ld a, LCDC_ON | LCDC_BG_ON
+    ld a, LCDC_ON | LCDC_BG_ON |LCDC_OBJ_ON
     ld [rLCDC], a
 
-    ;Set pallette
+    ;Set pallette for background
     ld a, %11100100
     ld [rBGP], a
 
+    ;Set object pallette and sprite pallette
+    ld a, %11100100
+    ld [rOBP0], a
+    ld [rOBP1], a
+
     ret
 
+
+;Clearing the oamram to make sure no sprite is shown wrong
+ClearOAM:
+    ld a, 0
+    ld b, 160
+    ld hl, _OAMRAM
+ClearOAMLoop:
+    ld [hli], a
+    dec b
+    jp nz, ClearOAMLoop
+    
+    ld a, [showSprite]
+    cp 1
+    call z, SetupCharacter
+    ret
+
+
+;Loading the main game world map (outside)
 LoadWorldMap:
     ;Copy tile data
     ld de, World
@@ -47,6 +71,8 @@ LoadWorldMap:
 
     ret
 
+
+;Loads the menu screen, also called start screen
 LoadStartScreen:
     ;Copy tile data
     ld de, HelloWorld_Tiles
@@ -62,7 +88,8 @@ LoadStartScreen:
 
     ret
 
-loadSprite:
+;Loads the sprites to the main character
+loadMainCharacter:
     ld de, Character
     ld hl, $8000
     ld bc, 16 * 8
@@ -70,13 +97,3 @@ loadSprite:
     ret
 
 
-ClearOAM:
-;Clearing the oamram to make sure no sprite is shown wrong
-    ld a, 0
-    ld b, 160
-    ld hl, _OAMRAM
-ClearOAMLoop:
-    ld [hli], a
-    dec b
-    jp nz, ClearOAMLoop
-    ret
