@@ -59,3 +59,8 @@ gameState: ds 1
 ;0 = False
 ;nz (Not zero) = true
 showSprite: ds 1
+
+;In the middle by defualt
+CharacterYOffset: ds 1
+;In the middle by defualt
+CharacterXOffset: ds 1

@@ -29,6 +29,9 @@ Entrypoint:
 
     ld [showSprite], a              ;Sets that showing sprites is off by defualt
 
+    ld [CharacterYOffset], a        ;Sets the offset for the main character
+    ld [CharacterXOffset], a
+
     
 ;--------------------------------------------------------------
 ;The WaitVBlank function is only running on startup to load 
