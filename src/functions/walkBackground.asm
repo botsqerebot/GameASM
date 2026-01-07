@@ -23,7 +23,7 @@ Walk:
     ;ld a, 0
     ;ld [currentWayWalking], a
 
-    ld a, 10
+    ld a, 5                    ;A cooldown for walking.
     ld [walkCooldown], a
 
     ;Basically if statements to see what direction to walk

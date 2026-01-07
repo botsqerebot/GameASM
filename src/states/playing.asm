@@ -21,6 +21,7 @@ GoToStart_State:
     ld [currentWayWalking], a
     ld [currentSteps], a
     ld [walkCooldown], a
+    ld [showSprite], a
 
     call WaitVBlank
     ret

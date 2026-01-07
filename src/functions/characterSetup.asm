@@ -15,7 +15,7 @@ SetupCharacter:
     ;X position
     ld a, [de]
     ld c, a
-    ld a, [CharacterYOffset]
+    ld a, [CharacterXOffset]
     add c
     inc de
     ld [hli], a
