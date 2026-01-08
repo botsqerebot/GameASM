@@ -90,9 +90,9 @@ LoadStartScreen:
 
 ;Loads the sprites to the main character
 loadMainCharacter:
-    ld de, Character
+    ld de, CharacterV2
     ld hl, $8000
-    ld bc, 16 * 8
+    ld bc, 16 * 10
     call CopyTiles
     ret
 

@@ -64,3 +64,7 @@ showSprite: ds 1
 CharacterYOffset: ds 1
 ;In the middle by defualt
 CharacterXOffset: ds 1
+
+;0 = False
+;nz = true
+IsRunning: ds 1

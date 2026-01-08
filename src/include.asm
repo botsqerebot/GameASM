@@ -35,5 +35,6 @@ INCLUDE "textures/Tiles/hello_world.asm"
 
 ;Sprites
 INCLUDE "textures/Sprites/Character.z80"
+INCLUDE "textures/Sprites/CharacterV2.z80"
 
 
