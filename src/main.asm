@@ -30,6 +30,9 @@ Entrypoint:
     ld [showSprite], a              ;Sets that showing sprites is off by defualt
 
     ld [IsRunning], a
+    
+    ld a, 4
+    ld [FlipSpritesDir], a
 
     ld a, 3
     ld [CharacterYOffset], a        ;Sets the offset for the main character

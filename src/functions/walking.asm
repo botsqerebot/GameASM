@@ -1,28 +1,48 @@
 WalkingAni:
     call SaveCoordiate2
 
+
     ld a, [currentWayWalking]
     cp 0
     jp nz, Walk
 
     ld a, [currentInput]
 
-    bit 6, a               ;Check if dpad is up
+    bit 1, a                    ;See if b is pressed then run
+    call nz, running
+    call z, notRunning
+    
+    ld a, [currentInput]
+    bit 6, a                    ;Check if dpad is up
     jp nz, SetDirUp_AndWalk
-    
-    bit 7, a                ;Check if dpad is down
+
+    ld a, [currentInput]
+    bit 7, a                    ;Check if dpad is down
     jp nz, SetDirDown_AndWalk
-    
-    bit 5, a                ;Check if dpad is left
+
+    ld a, [currentInput]
+    bit 5, a                    ;Check if dpad is left
     jp nz, SetDirLeft_AndWalk
-    
-    bit 4, a                ;Check if dpad is right
+
+    ld a, [currentInput]
+    bit 4, a                    ;Check if dpad is right
     jp nz, SetDirRight_AndWalk
 
     ;ld a, [currentWayWalking]
     ;cp 0
     ;jp z, SaveCoordiate
     ret
+
+running:
+    ld a, 1
+    ld [IsRunning], a
+    ret
+
+notRunning:
+    ld a, 0
+    ld [IsRunning], a
+    ret
+
 
 SetDirUp_AndWalk:
     ld a, 1
@@ -39,12 +59,16 @@ SetDirDown_AndWalk:
 SetDirLeft_AndWalk:
     ld a, 3
     ld [currentWayWalking], a
+    ld [FlipSpritesDir], a
+    call ChangeCharacterSpritesDir
     call Walk
     ret
 
 SetDirRight_AndWalk:
     ld a, 4
     ld [currentWayWalking], a
+    ld [FlipSpritesDir], a
+    call ChangeCharacterSpritesDir
     call Walk
     ret
 

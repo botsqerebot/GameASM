@@ -23,8 +23,9 @@ Walk:
     ;ld a, 0
     ;ld [currentWayWalking], a
 
-    ld a, 5                    ;A cooldown for walking.
-    ld [walkCooldown], a
+    call speed
+    ;ld a, 5                    ;A cooldown for walking.
+    ;ld [walkCooldown], a
 
     ;Basically if statements to see what direction to walk
     ld a, [currentWayWalking]
@@ -40,6 +41,24 @@ Walk:
     cp 4
     jp z, WalkRight
    
+
+speed:
+    ld a, [IsRunning]
+    cp 0
+    call nz, runSpeed
+    call z, walkSpeed
+    ret
+
+runSpeed:
+    ld a, 2                    ;A cooldown for walking.
+    ld [walkCooldown], a
+    ret
+walkSpeed:
+    ld a, 5                    ;A cooldown for walking.
+    ld [walkCooldown], a
+    ret
+
+
 
 WalkUP:
     ld a, [rSCY]
@@ -88,6 +107,10 @@ ResetWalk:
     ld [currentSteps], a
 
     ret
+
+
+
+
 
 
 

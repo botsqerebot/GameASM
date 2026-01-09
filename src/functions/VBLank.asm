@@ -51,7 +51,7 @@ ClearOAMLoop:
     
     ld a, [showSprite]
     cp 1
-    call z, SetupCharacter
+    call z, SetupCharacterLeft
     ret
 
 
