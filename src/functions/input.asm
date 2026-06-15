@@ -35,7 +35,7 @@ InputButton:
     ;and $0F                     ; Mask away the dpad so only button bits are left
     ;jr nz, ButtonsPressed
     ;ld a, b                     ; Restores the byte with all inputs
-
+    ld [currentInput], a
     ret
 
 

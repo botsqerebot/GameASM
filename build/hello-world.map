@@ -3,91 +3,91 @@ SUMMARY:
 	WRAM0: 17 bytes used / 4079 free
 
 ROM0 bank #0:
-	SECTION: $0000-$004e ($004f bytes) ["Input Buttons"]
+	SECTION: $0000-$0051 ($0052 bytes) ["Input Buttons"]
 	         $0000 = InputButton
-	         $0010 = InputButton.onenibble
-	         $001e = InputButton.knownRet
-	         $001f = DPadPressed
-	         $0036 = ButtonsPressed
-	SECTION: $004f-$0099 ($004b bytes) ["GameState"]
-	         $004f = Playing_State
-	         $005e = GoToStart_State
-	         $0079 = StartScreen_State
-	         $0082 = GoToGame_State
-	EMPTY: $009a-$00ff ($0066 bytes)
-	SECTION: $0100-$01bc ($00bd bytes) ["Header"]
+	         $0013 = InputButton.onenibble
+	         $0021 = InputButton.knownRet
+	         $0022 = DPadPressed
+	         $0039 = ButtonsPressed
+	SECTION: $0052-$009c ($004b bytes) ["GameState"]
+	         $0052 = Playing_State
+	         $0061 = GoToStart_State
+	         $007c = StartScreen_State
+	         $0085 = GoToGame_State
+	EMPTY: $009d-$00ff ($0063 bytes)
+	SECTION: $0100-$01b9 ($00ba bytes) ["Header"]
 	         $0150 = Entrypoint
 	         $0186 = MainLoop
-	         $01ab = PrintA
-	         $01b7 = A_msg
-	SECTION: $01bd-$073c ($0580 bytes) ["HelloWorld_Tiles"]
-	         $01bd = HelloWorld_Tiles
-	         $061d = HelloWorld_TilesEnd
-	         $061d = Character
-	         $069d = CharacterV2
-	SECTION: $073d-$0b3c ($0400 bytes) ["TileData"]
-	         $073d = WorldTileMap
-	SECTION: $0b3d-$0e1a ($02de bytes) ["GameCode"]
-	         $0b3d = walkCooldownTick
-	         $0b47 = walkCooldownTick_End
-	         $0b48 = Walk
-	         $0b6a = speed
-	         $0b76 = runSpeed
-	         $0b7c = walkSpeed
-	         $0b82 = WalkUP
-	         $0b8b = WalkDown
-	         $0b94 = WalkLeft
-	         $0b9d = WalkRight
-	         $0ba6 = Walk_End
-	         $0ba7 = AfterSteps
-	         $0bb9 = ResetWalk
-	         $0bc4 = Stutter_WalkUp
-	         $0bdf = Stutter_WalkUp_End
-	         $0be0 = Stutter_WalkDown
-	         $0bfb = Stutter_WalkDown_End
-	         $0bfc = Stutter_WalkLeft
-	         $0c1a = Stutter_WalkLeft_End
-	         $0c1b = Stutter_WalkRight
-	         $0c39 = Stutter_WalkRight_End
-	         $0c3a = ChangeCharacterSpritesDir
-	         $0c4f = SetupCharacterRight
-	         $0c65 = SetupCharacterLeft
-	         $0c7b = LoadSpriteLoop
-	         $0c9d = flipSprites
-	         $0ca2 = notFlipSprites
-	         $0ca5 = CharacterSpriteData
-	         $0ca5 = CharacterHead
-	         $0cb1 = CharacterBody
-	         $0cb7 = CharacterLegsStanding
-	         $0cbd = CharacterLegsWalking
-	         $0cbf = CharacterLegsWalkingLeft
-	         $0cc1 = CharacterSpriteDataLeft
-	         $0cc1 = CharacterHeadLeft
-	         $0ccd = CharacterBodyLeft
-	         $0cd3 = CharacterLegsStandingLeft
-	         $0cd9 = CopyTiles
-	         $0ce3 = CopyTilemap
-	         $0ced = WalkingAni
-	         $0d24 = running
-	         $0d2a = notRunning
-	         $0d30 = SetDirUp_AndWalk
-	         $0d39 = SetDirDown_AndWalk
-	         $0d42 = SetDirLeft_AndWalk
-	         $0d51 = SetDirRight_AndWalk
-	         $0d60 = SaveCoordiate
-	         $0d6d = increese
-	         $0d71 = SaveCoordiate2
-	         $0d8f = WaitVBlank
-	         $0dc7 = ClearOAM
-	         $0dce = ClearOAMLoop
-	         $0ddc = LoadWorldMap
-	         $0df5 = LoadStartScreen
-	         $0e0e = loadMainCharacter
-	SECTION: $0e1b-$109a ($0280 bytes) ["HelloWorld"]
-	         $0e1b = HelloWorldmap
-	         $105b = World
-	         $105b = HelloWorldmapEnd
-	EMPTY: $109b-$3fff ($2f65 bytes)
+	         $01a8 = PrintA
+	         $01b4 = A_msg
+	SECTION: $01ba-$0739 ($0580 bytes) ["HelloWorld_Tiles"]
+	         $01ba = HelloWorld_Tiles
+	         $061a = HelloWorld_TilesEnd
+	         $061a = Character
+	         $069a = CharacterV2
+	SECTION: $073a-$0b39 ($0400 bytes) ["TileData"]
+	         $073a = WorldTileMap
+	SECTION: $0b3a-$0e17 ($02de bytes) ["GameCode"]
+	         $0b3a = walkCooldownTick
+	         $0b44 = walkCooldownTick_End
+	         $0b45 = Walk
+	         $0b67 = speed
+	         $0b73 = runSpeed
+	         $0b79 = walkSpeed
+	         $0b7f = WalkUP
+	         $0b88 = WalkDown
+	         $0b91 = WalkLeft
+	         $0b9a = WalkRight
+	         $0ba3 = Walk_End
+	         $0ba4 = AfterSteps
+	         $0bb6 = ResetWalk
+	         $0bc1 = Stutter_WalkUp
+	         $0bdc = Stutter_WalkUp_End
+	         $0bdd = Stutter_WalkDown
+	         $0bf8 = Stutter_WalkDown_End
+	         $0bf9 = Stutter_WalkLeft
+	         $0c17 = Stutter_WalkLeft_End
+	         $0c18 = Stutter_WalkRight
+	         $0c36 = Stutter_WalkRight_End
+	         $0c37 = ChangeCharacterSpritesDir
+	         $0c4c = SetupCharacterRight
+	         $0c62 = SetupCharacterLeft
+	         $0c78 = LoadSpriteLoop
+	         $0c9a = flipSprites
+	         $0c9f = notFlipSprites
+	         $0ca2 = CharacterSpriteData
+	         $0ca2 = CharacterHead
+	         $0cae = CharacterBody
+	         $0cb4 = CharacterLegsStanding
+	         $0cba = CharacterLegsWalking
+	         $0cbc = CharacterLegsWalkingLeft
+	         $0cbe = CharacterSpriteDataLeft
+	         $0cbe = CharacterHeadLeft
+	         $0cca = CharacterBodyLeft
+	         $0cd0 = CharacterLegsStandingLeft
+	         $0cd6 = CopyTiles
+	         $0ce0 = CopyTilemap
+	         $0cea = WalkingAni
+	         $0d21 = running
+	         $0d27 = notRunning
+	         $0d2d = SetDirUp_AndWalk
+	         $0d36 = SetDirDown_AndWalk
+	         $0d3f = SetDirLeft_AndWalk
+	         $0d4e = SetDirRight_AndWalk
+	         $0d5d = SaveCoordiate
+	         $0d6a = increese
+	         $0d6e = SaveCoordiate2
+	         $0d8c = WaitVBlank
+	         $0dc4 = ClearOAM
+	         $0dcb = ClearOAMLoop
+	         $0dd9 = LoadWorldMap
+	         $0df2 = LoadStartScreen
+	         $0e0b = loadMainCharacter
+	SECTION: $0e18-$1097 ($0280 bytes) ["HelloWorld"]
+	         $0e18 = HelloWorldmap
+	         $1058 = World
+	         $1058 = HelloWorldmapEnd
+	EMPTY: $1098-$3fff ($2f68 bytes)
 	TOTAL EMPTY: $2fcb bytes
 
 WRAM0 bank #0:

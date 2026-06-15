@@ -65,7 +65,7 @@ MainLoop:
 
     ;Takes the input for this frame
     call InputButton        ;Takes the input
-    ld [currentInput], a    ;Stores the current input
+    ;ld [currentInput], a    ;Stores the current input
 
     ld a, [gameState]
     cp 0
